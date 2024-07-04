@@ -46,11 +46,7 @@ namespace GUI
             dgv_ds_doc_gia.DataSource = DocGiaBUS.ds_docgia();
         }
 
-        private void QL_Tai_Khoan_Doc_Gia_Load(object sender, EventArgs e)
-        {
-            loads_dgv();
-            ClearForm();
-        }
+
 
         private void ClearForm()
         {
@@ -86,30 +82,66 @@ namespace GUI
             }
         }
 
-        private void btn_sua_Click_1(object sender, EventArgs e)
+    
+
+
+
+
+
+
+
+        private void btn_bo_qua_Click(object sender, EventArgs e)
         {
-            try
+            QL_Kho_Sach qlks = new QL_Kho_Sach();
+            this.Hide();
+            qlks.ShowDialog();
+        }
+
+        private void dgv_ds_doc_gia_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Lấy chỉ số của hàng đang được chọn
+            int rowIndex = e.RowIndex;
+
+            // Kiểm tra xem chỉ số có hợp lệ không
+            if (rowIndex >= 0 && rowIndex < dgv_ds_doc_gia.Rows.Count)
             {
-                int maDocGia = int.Parse(txt_ma_doc_gia.Text);
-                String tenDG = txt_ten_doc_gia.Text;
-                DateTime ngaySinh = DateTime.Parse(txt_nam_sinh.Text);
-                String DiaChi = txt_dia_chi.Text;
-                String Sdt = txt_so_dien_thoai.Text;
-                String CMT = txt_cmt.Text;
-                String HanThe = txt_han_the.Text;
-                tbDocGia dg = new tbDocGia(maDocGia, tenDG, ngaySinh, DiaChi, Sdt, CMT, HanThe);
-                DocGiaBUS.UpdateDocGia(dg);
-                MessageBox.Show("Bạn đã cập nhật " + tenDG + " thành công");
-                loads_dgv();
-                ClearForm();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                DataGridViewRow row = dgv_ds_doc_gia.Rows[rowIndex];
+                txt_ma_doc_gia.Text = row.Cells["Mã Độc Giả"].Value.ToString();
+                txt_ten_doc_gia.Text = row.Cells["Tên Độc Giả"].Value.ToString();
+                txt_nam_sinh.Text = DateTime.Parse(row.Cells["Năm Sinh"].Value.ToString()).ToString("dd-MM-yyyy");
+                txt_dia_chi.Text = row.Cells["Địa Chỉ"].Value.ToString();
+                txt_so_dien_thoai.Text = row.Cells["SDT"].Value.ToString();
+                txt_cmt.Text = row.Cells["CMT"].Value.ToString();
+                txt_han_the.Text = row.Cells["Hạn Thẻ"].Value.ToString();
             }
         }
 
-        private void btn_xoa_Click_1(object sender, EventArgs e)
+        private void btn_the_loai_Click(object sender, EventArgs e)
+        {
+            QL_The_loai qltl = new QL_The_loai();
+            this.Hide();
+            qltl.ShowDialog();
+        }
+
+        private void btn_dang_xuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                form_dang_nhap form_Dang_Nhap = new form_dang_nhap();
+                form_Dang_Nhap.ShowDialog();
+            }
+        }
+
+        private void btn_ngon_ngu_Click(object sender, EventArgs e)
+        {
+            NgonNgu ngonngu = new NgonNgu();
+            this.Hide();
+            ngonngu.ShowDialog();
+        }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
         {
             try
             {
@@ -132,61 +164,32 @@ namespace GUI
             }
         }
 
-        private void btn_the_loai_Click_1(object sender, EventArgs e)
+        private void btn_sua_Click(object sender, EventArgs e)
         {
-            QL_The_loai qltl = new QL_The_loai();
-            this.Hide();
-            qltl.ShowDialog();
-        }
-
-        private void btn_ngon_ngu_Click_1(object sender, EventArgs e)
-        {
-            NgonNgu ngonngu = new NgonNgu();
-            this.Hide();
-            ngonngu.ShowDialog();
-        }
-
-        private void btn_dang_xuat_Click_1(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
+            try
             {
-                this.Hide();
-                form_dang_nhap form_Dang_Nhap = new form_dang_nhap();
-                form_Dang_Nhap.ShowDialog();
+                int maDocGia = int.Parse(txt_ma_doc_gia.Text);
+                String tenDG = txt_ten_doc_gia.Text;
+                DateTime ngaySinh = DateTime.Parse(txt_nam_sinh.Text);
+                String DiaChi = txt_dia_chi.Text;
+                String Sdt = txt_so_dien_thoai.Text;
+                String CMT = txt_cmt.Text;
+                String HanThe = txt_han_the.Text;
+                tbDocGia dg = new tbDocGia(maDocGia, tenDG, ngaySinh, DiaChi, Sdt, CMT, HanThe);
+                DocGiaBUS.UpdateDocGia(dg);
+                MessageBox.Show("Bạn đã cập nhật " + tenDG + " thành công");
+                loads_dgv();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void btn_the_loai_Click_1_1(object sender, EventArgs e)
+        private void QL_Tai_Khoan_Doc_Gia_Load(object sender, EventArgs e)
         {
-            QL_The_loai qltl = new QL_The_loai();
-            this.Hide();
-            qltl.ShowDialog();
-        }
-
-        private void dgv_ds_doc_gia_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            {
-                // Lấy chỉ số của hàng đang được chọn
-                int rowIndex = e.RowIndex;
-
-                // Kiểm tra xem chỉ số có hợp lệ không
-                if (rowIndex >= 0 && rowIndex < dgv_ds_doc_gia.Rows.Count)
-                {
-                    DataGridViewRow row = dgv_ds_doc_gia.Rows[rowIndex];
-                    txt_ma_doc_gia.Text = row.Cells["Mã Độc Giả"].Value.ToString();
-                    txt_ten_doc_gia.Text = row.Cells["Tên Độc Giả"].Value.ToString();
-                    txt_nam_sinh.Text = DateTime.Parse(row.Cells["Năm Sinh"].Value.ToString()).ToString("dd-MM-yyyy");
-                    txt_dia_chi.Text = row.Cells["Địa Chỉ"].Value.ToString();
-                    txt_so_dien_thoai.Text = row.Cells["SDT"].Value.ToString();
-                    txt_cmt.Text = row.Cells["CMT"].Value.ToString();
-                    txt_han_the.Text = row.Cells["Hạn Thẻ"].Value.ToString();
-                }
-            }
-        }
-
-        private void button6_Click_1(object sender, EventArgs e)
-        {
+            loads_dgv();
             ClearForm();
         }
     }

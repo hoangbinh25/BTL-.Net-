@@ -44,39 +44,45 @@ namespace GUI
             }
         }
 
-        private void btn_the_loai_Click_1(object sender, EventArgs e)
+
+
+        
+
+
+
+        private void btn_ngon_ngu_Click(object sender, EventArgs e)
         {
-            QL_The_loai qltl = new QL_The_loai();
+            NgonNgu ngonngu = new NgonNgu();
             this.Hide();
-            qltl.ShowDialog();
+            ngonngu.ShowDialog();
         }
 
-        private void btn_kho_sach_Click_1(object sender, EventArgs e)
-        {
-            QL_Kho_Sach qlks = new QL_Kho_Sach();
-            this.Hide();
-            qlks.ShowDialog();
-        }
-
-        private void btn_doc_gia_Click_1(object sender, EventArgs e)
-        {
-            QL_Tai_Khoan_Doc_Gia qldg = new QL_Tai_Khoan_Doc_Gia();
-            this.Hide();
-            qldg.ShowDialog();
-        }
-
-        private void btn_muon_tra_Click_1(object sender, EventArgs e)
+        private void btn_muon_tra_Click(object sender, EventArgs e)
         {
             QL_TraMuon_Sach qlmt = new QL_TraMuon_Sach();
             this.Hide();
             qlmt.ShowDialog();
         }
 
-        private void btn_ngon_ngu_Click_1(object sender, EventArgs e)
+        private void btn_doc_gia_Click(object sender, EventArgs e)
         {
-            NgonNgu ngonngu = new NgonNgu();
+            QL_Tai_Khoan_Doc_Gia qldg = new QL_Tai_Khoan_Doc_Gia();
             this.Hide();
-            ngonngu.ShowDialog();
+            qldg.ShowDialog();
+        }
+
+        private void btn_kho_sach_Click(object sender, EventArgs e)
+        {
+            QL_Kho_Sach qlks = new QL_Kho_Sach();
+            this.Hide();
+            qlks.ShowDialog();
+        }
+
+        private void btn_the_loai_Click(object sender, EventArgs e)
+        {
+            QL_The_loai qltl = new QL_The_loai();
+            this.Hide();
+            qltl.ShowDialog();
         }
     }
 }

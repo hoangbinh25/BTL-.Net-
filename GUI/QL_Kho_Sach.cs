@@ -47,7 +47,7 @@ namespace GUI
             txt_ten_sach.Text = string.Empty;
             txt_tac_gia.Text = string.Empty;
             txt_ngay_nhap.Text = string.Empty;
-            txt_gia_bia.Text = string.Empty;
+            txt_gia_ban.Text = string.Empty;
             txt_nha_xuat_ban.Text = string.Empty;
             txt_so_luong.Text = string.Empty;
 
@@ -58,77 +58,45 @@ namespace GUI
                 cbb_ngon_ngu.SelectedIndex = -1;
         }
 
-        private void btn_doc_gia_Click_1(object sender, EventArgs e)
-        {
-            QL_Tai_Khoan_Doc_Gia qldg = new QL_Tai_Khoan_Doc_Gia();
-            this.Hide();
-            qldg.ShowDialog();
-        }
-
-        private void btn_muon_tra_Click_1(object sender, EventArgs e)
-        {
-            QL_TraMuon_Sach qlmt = new QL_TraMuon_Sach();
-            this.Hide();
-            qlmt.ShowDialog();
-        }
+        
 
         private void QL_Kho_Sach_Load(object sender, EventArgs e)
         {
+            
             loads_dgv();
             loads_ngonngu();
             loads_theloai();
             ClearForm();
+            
         }
 
-        private void btn_them_Click(object sender, EventArgs e)
+        private void btn_dang_xuat_Click(object sender, EventArgs e)
         {
-            //txt_ma_sach.Text = cbb_ngon_ngu.SelectedValue.ToString();
-            int sach_id = int.Parse(txt_ma_sach.Text);
-            String ten_sach = txt_ten_sach.Text;
-            String tac_gia = txt_tac_gia.Text;
-            String loai_sach = cbb_the_loai.SelectedValue.ToString();
-            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
-            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
-            String gia_bia = txt_gia_bia.Text;
-            String nha_xb = txt_nha_xuat_ban.Text;
-            int soluong = int.Parse(txt_so_luong.Text);
-            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
-            SachBUS.them_sach(sach);
-            loads_dgv();
-            ClearForm();
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                form_dang_nhap form_Dang_Nhap = new form_dang_nhap();
+                form_Dang_Nhap.ShowDialog();
+            }
         }
 
-        private void btn_sua_Click(object sender, EventArgs e)
+        private void btn_ngon_ngu_Click(object sender, EventArgs e)
         {
-            int sach_id = int.Parse(txt_ma_sach.Text);
-            String ten_sach = txt_ten_sach.Text;
-            String tac_gia = txt_tac_gia.Text;
-            String loai_sach = cbb_the_loai.SelectedValue.ToString();
-            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
-            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
-            String gia_bia = txt_gia_bia.Text;
-            String nha_xb = txt_nha_xuat_ban.Text;
-            int soluong = int.Parse(txt_so_luong.Text);
-            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
-            SachBUS.sua_sach(sach);
-            loads_dgv();
-            ClearForm();
+            NgonNgu ngonngu = new NgonNgu();
+            this.Hide();
+            ngonngu.ShowDialog();
         }
 
-        private void btn_xoa_Click(object sender, EventArgs e)
+        private void btn_the_loai_Click(object sender, EventArgs e)
         {
-            int sach_id = int.Parse(txt_ma_sach.Text);
-            String ten_sach = txt_ten_sach.Text;
-            String tac_gia = txt_tac_gia.Text;
-            String loai_sach = cbb_the_loai.SelectedValue.ToString();
-            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
-            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
-            String gia_bia = txt_gia_bia.Text;
-            String nha_xb = txt_nha_xuat_ban.Text;
-            int soluong = int.Parse(txt_so_luong.Text);
-            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
-            SachBUS.xoa_sach(sach);
-            loads_dgv();
+            QL_The_loai qltl = new QL_The_loai();
+            this.Hide();
+            qltl.ShowDialog();
+        }
+
+        private void btn_boqua_Click(object sender, EventArgs e)
+        {
             ClearForm();
         }
 
@@ -147,40 +115,76 @@ namespace GUI
                 cbb_the_loai.SelectedValue = row.Cells["Loại Sách"].Selected;
                 cbb_ngon_ngu.SelectedValue = row.Cells["Ngôn Ngữ"].Selected;
                 txt_ngay_nhap.Text = DateTime.Parse(row.Cells["Ngày Nhập"].Value.ToString()).ToString("yyyy-MM-dd");
-                txt_gia_bia.Text = row.Cells["Giá Sách"].Value.ToString();
+                txt_gia_ban.Text = row.Cells["Giá Sách"].Value.ToString();
                 txt_nha_xuat_ban.Text = row.Cells["Nhà xuất bản"].Value.ToString();
                 txt_so_luong.Text = row.Cells["Số Lượng"].Value.ToString();
             }
         }
 
-        private void btn_boqua_Click(object sender, EventArgs e)
+        private void btn_xoa_Click(object sender, EventArgs e)
         {
+            int sach_id = int.Parse(txt_ma_sach.Text);
+            String ten_sach = txt_ten_sach.Text;
+            String tac_gia = txt_tac_gia.Text;
+            String loai_sach = cbb_the_loai.SelectedValue.ToString();
+            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
+            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
+            String gia_bia = txt_gia_ban.Text;
+            String nha_xb = txt_nha_xuat_ban.Text;
+            int soluong = int.Parse(txt_so_luong.Text);
+            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
+            SachBUS.xoa_sach(sach);
+            loads_dgv();
             ClearForm();
         }
 
-        private void btn_the_loai_Click(object sender, EventArgs e)
+        private void btn_sua_Click(object sender, EventArgs e)
         {
-            QL_The_loai qltl = new QL_The_loai();
-            this.Hide();
-            qltl.ShowDialog();
+            int sach_id = int.Parse(txt_ma_sach.Text);
+            String ten_sach = txt_ten_sach.Text;
+            String tac_gia = txt_tac_gia.Text;
+            String loai_sach = cbb_the_loai.SelectedValue.ToString();
+            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
+            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
+            String gia_bia = txt_gia_ban.Text;
+            String nha_xb = txt_nha_xuat_ban.Text;
+            int soluong = int.Parse(txt_so_luong.Text);
+            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
+            SachBUS.sua_sach(sach);
+            loads_dgv();
+            ClearForm();
         }
 
-        private void btn_ngon_ngu_Click_1(object sender, EventArgs e)
+        private void btn_them_Click(object sender, EventArgs e)
         {
-            NgonNgu ngonngu = new NgonNgu();
-            this.Hide();
-            ngonngu.ShowDialog();
+            //txt_ma_sach.Text = cbb_ngon_ngu.SelectedValue.ToString();
+            int sach_id = int.Parse(txt_ma_sach.Text);
+            String ten_sach = txt_ten_sach.Text;
+            String tac_gia = txt_tac_gia.Text;
+            String loai_sach = cbb_the_loai.SelectedValue.ToString();
+            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
+            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
+            String gia_bia = txt_gia_ban.Text;
+            String nha_xb = txt_nha_xuat_ban.Text;
+            int soluong = int.Parse(txt_so_luong.Text);
+            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
+            SachBUS.them_sach(sach);
+            loads_dgv();
+            ClearForm();
         }
 
-        private void btn_dang_xuat_Click(object sender, EventArgs e)
+        private void btn_doc_gia_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
-            {
-                this.Hide();
-                form_dang_nhap form_Dang_Nhap = new form_dang_nhap();
-                form_Dang_Nhap.ShowDialog();
-            }
+            QL_Tai_Khoan_Doc_Gia qldg = new QL_Tai_Khoan_Doc_Gia();
+            this.Hide();
+            qldg.ShowDialog();
+        }
+
+        private void btn_muon_tra_Click(object sender, EventArgs e)
+        {
+            QL_TraMuon_Sach qlmt = new QL_TraMuon_Sach();
+            this.Hide();
+            qlmt.ShowDialog();
         }
     }
 }
