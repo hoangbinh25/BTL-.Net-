@@ -10,7 +10,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tim_kiem());
+            Application.Run(new form_dang_nhap());
         }
     }
 }

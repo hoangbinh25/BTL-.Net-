@@ -58,8 +58,6 @@ namespace GUI
                 cbb_ngon_ngu.SelectedIndex = -1;
         }
 
-        
-
         private void QL_Kho_Sach_Load(object sender, EventArgs e)
         {
             

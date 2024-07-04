@@ -20,33 +20,17 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void btn_kho_sach_Click_1(object sender, EventArgs e)
-        {
-            QL_Kho_Sach qlks = new QL_Kho_Sach();
-            this.Hide();
-            qlks.ShowDialog();
-        }
-
-        private void btn_doc_gia_Click_1(object sender, EventArgs e)
+        private void btn_doc_gia_Click(object sender, EventArgs e)
         {
             QL_Tai_Khoan_Doc_Gia qldg = new QL_Tai_Khoan_Doc_Gia();
             this.Hide();
             qldg.ShowDialog();
         }
 
-        private void btn_muon_tra_Click_1(object sender, EventArgs e)
-        {
-            QL_TraMuon_Sach qlmt = new QL_TraMuon_Sach();
-            this.Hide();
-            qlmt.ShowDialog();
-        }
-
         public void loads_dgv()
         {
             dgv_ds_doc_gia.DataSource = DocGiaBUS.ds_docgia();
         }
-
-
 
         private void ClearForm()
         {
@@ -81,14 +65,6 @@ namespace GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
-    
-
-
-
-
-
-
 
         private void btn_bo_qua_Click(object sender, EventArgs e)
         {
@@ -191,6 +167,20 @@ namespace GUI
         {
             loads_dgv();
             ClearForm();
+        }
+
+        private void btn_muon_tra_Click_1(object sender, EventArgs e)
+        {
+            QL_TraMuon_Sach qlmt = new QL_TraMuon_Sach();
+            this.Hide();
+            qlmt.ShowDialog();
+        }
+
+        private void btn_kho_sach_Click_1(object sender, EventArgs e)
+        {
+            QL_Kho_Sach qlks = new QL_Kho_Sach();
+            this.Hide();
+            qlks.ShowDialog();
         }
     }
 }
