@@ -22,7 +22,7 @@ namespace GUI {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Sach_DTS : global::System.Data.DataSet {
+    public partial class DataSet1 : global::System.Data.DataSet {
         
         private sachDataTable tablesach;
         
@@ -30,7 +30,7 @@ namespace GUI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public Sach_DTS() {
+        public DataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace GUI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected Sach_DTS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace GUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Sach_DTS cln = ((Sach_DTS)(base.Clone()));
+            DataSet1 cln = ((DataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -225,7 +225,7 @@ namespace GUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Sach_DTS ds = new Sach_DTS();
+            DataSet1 ds = new DataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -519,6 +519,7 @@ namespace GUI {
                 this.columnnha_xb.MaxLength = 100;
                 this.columnten_sach.MaxLength = 100;
                 this.columntac_gia.MaxLength = 100;
+                this.columngia_bia.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -586,7 +587,7 @@ namespace GUI {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Sach_DTS ds = new Sach_DTS();
+                DataSet1 ds = new DataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -786,12 +787,7 @@ namespace GUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public double gia_bia {
                 get {
-                    try {
-                        return ((double)(this[this.tablesach.gia_biaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'gia_bia\' in table \'sach\' is DBNull.", e);
-                    }
+                    return ((double)(this[this.tablesach.gia_biaColumn]));
                 }
                 set {
                     this[this.tablesach.gia_biaColumn] = value;
@@ -880,18 +876,6 @@ namespace GUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setngay_nhapNull() {
                 this[this.tablesach.ngay_nhapColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isgia_biaNull() {
-                return this.IsNull(this.tablesach.gia_biaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setgia_biaNull() {
-                this[this.tablesach.gia_biaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1154,7 +1138,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Sach_DTS.sachDataTable dataTable) {
+        public virtual int Fill(DataSet1.sachDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1167,9 +1151,9 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Sach_DTS.sachDataTable GetData() {
+        public virtual DataSet1.sachDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Sach_DTS.sachDataTable dataTable = new Sach_DTS.sachDataTable();
+            DataSet1.sachDataTable dataTable = new DataSet1.sachDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1177,14 +1161,14 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Sach_DTS.sachDataTable dataTable) {
+        public virtual int Update(DataSet1.sachDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Sach_DTS dataSet) {
+        public virtual int Update(DataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "sach");
         }
         
@@ -1207,7 +1191,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_sach_id, global::System.Nullable<int> Original_loai_sach_id, string Original_nha_xb, global::System.Nullable<int> Original_ngon_ngu_id, string Original_ten_sach, string Original_tac_gia, global::System.Nullable<int> Original_so_luong, global::System.Nullable<global::System.DateTime> Original_ngay_nhap, global::System.Nullable<double> Original_gia_bia) {
+        public virtual int Delete(int Original_sach_id, global::System.Nullable<int> Original_loai_sach_id, string Original_nha_xb, global::System.Nullable<int> Original_ngon_ngu_id, string Original_ten_sach, string Original_tac_gia, global::System.Nullable<int> Original_so_luong, global::System.Nullable<global::System.DateTime> Original_ngay_nhap, double Original_gia_bia) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_sach_id));
             if ((Original_loai_sach_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -1265,14 +1249,8 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_gia_bia.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((double)(Original_gia_bia.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[16].Value = ((double)(Original_gia_bia));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1293,7 +1271,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int sach_id, global::System.Nullable<int> loai_sach_id, string nha_xb, global::System.Nullable<int> ngon_ngu_id, string ten_sach, string tac_gia, global::System.Nullable<int> so_luong, global::System.Nullable<global::System.DateTime> ngay_nhap, global::System.Nullable<double> gia_bia) {
+        public virtual int Insert(int sach_id, global::System.Nullable<int> loai_sach_id, string nha_xb, global::System.Nullable<int> ngon_ngu_id, string ten_sach, string tac_gia, global::System.Nullable<int> so_luong, global::System.Nullable<global::System.DateTime> ngay_nhap, double gia_bia) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(sach_id));
             if ((loai_sach_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(loai_sach_id.Value));
@@ -1337,12 +1315,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((gia_bia.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(gia_bia.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[8].Value = ((double)(gia_bia));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1372,7 +1345,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
                     string tac_gia, 
                     global::System.Nullable<int> so_luong, 
                     global::System.Nullable<global::System.DateTime> ngay_nhap, 
-                    global::System.Nullable<double> gia_bia, 
+                    double gia_bia, 
                     int Original_sach_id, 
                     global::System.Nullable<int> Original_loai_sach_id, 
                     string Original_nha_xb, 
@@ -1381,7 +1354,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
                     string Original_tac_gia, 
                     global::System.Nullable<int> Original_so_luong, 
                     global::System.Nullable<global::System.DateTime> Original_ngay_nhap, 
-                    global::System.Nullable<double> Original_gia_bia) {
+                    double Original_gia_bia) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(sach_id));
             if ((loai_sach_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(loai_sach_id.Value));
@@ -1425,12 +1398,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((gia_bia.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(gia_bia.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((double)(gia_bia));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_sach_id));
             if ((Original_loai_sach_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
@@ -1488,14 +1456,8 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Original_gia_bia.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Original_gia_bia.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((double)(Original_gia_bia));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1524,7 +1486,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
                     string tac_gia, 
                     global::System.Nullable<int> so_luong, 
                     global::System.Nullable<global::System.DateTime> ngay_nhap, 
-                    global::System.Nullable<double> gia_bia, 
+                    double gia_bia, 
                     int Original_sach_id, 
                     global::System.Nullable<int> Original_loai_sach_id, 
                     string Original_nha_xb, 
@@ -1533,7 +1495,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
                     string Original_tac_gia, 
                     global::System.Nullable<int> Original_so_luong, 
                     global::System.Nullable<global::System.DateTime> Original_ngay_nhap, 
-                    global::System.Nullable<double> Original_gia_bia) {
+                    double Original_gia_bia) {
             return this.Update(Original_sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, ngay_nhap, gia_bia, Original_sach_id, Original_loai_sach_id, Original_nha_xb, Original_ngon_ngu_id, Original_ten_sach, Original_tac_gia, Original_so_luong, Original_ngay_nhap, Original_gia_bia);
         }
     }
@@ -1629,7 +1591,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(Sach_DTS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._sachTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.sach.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1648,7 +1610,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(Sach_DTS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._sachTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.sach.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1666,7 +1628,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(Sach_DTS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._sachTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.sach.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1708,7 +1670,7 @@ SELECT sach_id, loai_sach_id, nha_xb, ngon_ngu_id, ten_sach, tac_gia, so_luong, 
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(Sach_DTS dataSet) {
+        public virtual int UpdateAll(DataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sach_DTS.cs">
+      <DependentUpon>Sach_DTS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Sach_RPT.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

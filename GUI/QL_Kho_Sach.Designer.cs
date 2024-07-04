@@ -64,6 +64,7 @@ namespace GUI
             this.btn_muon_tra = new System.Windows.Forms.Button();
             this.btn_doc_gia = new System.Windows.Forms.Button();
             this.btn_kho_sach = new System.Windows.Forms.Button();
+            this.btn_xuat_bao_cao = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kho_sach)).BeginInit();
             this.panel2.SuspendLayout();
@@ -78,7 +79,7 @@ namespace GUI
             this.btn_xoa.ForeColor = System.Drawing.Color.Black;
             this.btn_xoa.Image = global::GUI.Properties.Resources.z5560539339010_ef792d56ebbc8998d0d577435891ae63;
             this.btn_xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_xoa.Location = new System.Drawing.Point(711, 338);
+            this.btn_xoa.Location = new System.Drawing.Point(402, 338);
             this.btn_xoa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -96,7 +97,7 @@ namespace GUI
             this.btn_sua.ForeColor = System.Drawing.Color.Black;
             this.btn_sua.Image = global::GUI.Properties.Resources.z5560539359740_9337aa11269aeccd6e939ece18cfa20e;
             this.btn_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_sua.Location = new System.Drawing.Point(375, 338);
+            this.btn_sua.Location = new System.Drawing.Point(208, 339);
             this.btn_sua.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -114,7 +115,7 @@ namespace GUI
             this.btn_them.ForeColor = System.Drawing.Color.Black;
             this.btn_them.Image = global::GUI.Properties.Resources.z5560539359591_8726bde7817e7680733c216c1b763b9d;
             this.btn_them.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_them.Location = new System.Drawing.Point(28, 340);
+            this.btn_them.Location = new System.Drawing.Point(34, 339);
             this.btn_them.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_them.Name = "btn_them";
             this.btn_them.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -207,6 +208,7 @@ namespace GUI
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btn_xuat_bao_cao);
             this.panel2.Controls.Add(this.txt_so_luong);
             this.panel2.Controls.Add(this.txt_nha_xuat_ban);
             this.panel2.Controls.Add(this.txt_gia_ban);
@@ -520,6 +522,23 @@ namespace GUI
             this.btn_kho_sach.Text = "Kho Sách";
             this.btn_kho_sach.UseVisualStyleBackColor = true;
             // 
+            // btn_xuat_bao_cao
+            // 
+            this.btn_xuat_bao_cao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_xuat_bao_cao.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_xuat_bao_cao.ForeColor = System.Drawing.Color.Black;
+            this.btn_xuat_bao_cao.Image = global::GUI.Properties.Resources.favicon_32x32;
+            this.btn_xuat_bao_cao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_xuat_bao_cao.Location = new System.Drawing.Point(865, 338);
+            this.btn_xuat_bao_cao.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btn_xuat_bao_cao.Name = "btn_xuat_bao_cao";
+            this.btn_xuat_bao_cao.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
+            this.btn_xuat_bao_cao.Size = new System.Drawing.Size(116, 33);
+            this.btn_xuat_bao_cao.TabIndex = 29;
+            this.btn_xuat_bao_cao.Text = "Báo Cáo";
+            this.btn_xuat_bao_cao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_xuat_bao_cao.UseVisualStyleBackColor = true;
+            // 
             // QL_Kho_Sach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -579,5 +598,6 @@ namespace GUI
         private TextBox txt_nha_xuat_ban;
         private TextBox txt_gia_ban;
         private TextBox txt_ngay_nhap;
+        private Button btn_xuat_bao_cao;
     }
 }
