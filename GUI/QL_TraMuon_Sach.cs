@@ -21,11 +21,25 @@ namespace GUI
 
         public void Loads_phieuMuon()
         {
-            dgv_ds_muon_tra.DataSource = MuonTraBUS.ds_PhieuMuon();
+            try
+            {
+                dgv_ds_muon_tra.DataSource = MuonTraBUS.ds_PhieuMuon();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi Load : {ex.Message}");
+            }
         }
         public void Loads_chiTietPhieuMuon(String ma)
         {
-            dgv_ds_chitietmuontra.DataSource = MuonTraBUS.ds_ChiTietPhieuMuon(ma);
+            try
+            {
+                dgv_ds_chitietmuontra.DataSource = MuonTraBUS.ds_ChiTietPhieuMuon(ma);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi Load : {ex.Message}");
+            }
         }
         public void clearFormPM()
         {
@@ -41,15 +55,29 @@ namespace GUI
 
         public void loads_sachs()
         {
-            cbb_ten_sach.DataSource = MuonTraBUS.ds_sach();
-            cbb_ten_sach.DisplayMember = "Tên Sách";
-            cbb_ten_sach.ValueMember = "Mã Sách";
+            try
+            {
+                cbb_ten_sach.DataSource = MuonTraBUS.ds_sach();
+                cbb_ten_sach.DisplayMember = "Tên Sách";
+                cbb_ten_sach.ValueMember = "Mã Sách";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi : {ex.Message}");
+            }
         }
         public void loads_member()
         {
-            cbb_doc_gia.DataSource = MuonTraBUS.ds_doc_gia();
-            cbb_doc_gia.DisplayMember = "Tên Độc Giả";
-            cbb_doc_gia.ValueMember = "Mã Độc Giả";
+            try
+            {
+                cbb_doc_gia.DataSource = MuonTraBUS.ds_doc_gia();
+                cbb_doc_gia.DisplayMember = "Tên Độc Giả";
+                cbb_doc_gia.ValueMember = "Mã Độc Giả";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi : {ex.Message}");
+            }
         }
 
 
@@ -88,34 +116,70 @@ namespace GUI
 
         private void btn_xoa_sach_Click(object sender, EventArgs e)
         {
-            int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
-            int sach_id = int.Parse(cbb_ten_sach.SelectedValue.ToString());
-            MuonTraBUS.xoa_ChiTietPM(phieu_muon_id, sach_id);
-            Loads_phieuMuon();
-            clearFormPM();
+            try
+            {
+                
+                    int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
+                    int sach_id = int.Parse(cbb_ten_sach.SelectedValue.ToString());
+                    MuonTraBUS.xoa_ChiTietPM(phieu_muon_id, sach_id);
+                    Loads_phieuMuon();
+                    Loads_chiTietPhieuMuon(txt_ma_the_muon.Text);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
         }
 
         private void btn_them_sach_Click(object sender, EventArgs e)
         {
-            int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
-            int sach_id = int.Parse(cbb_ten_sach.SelectedValue.ToString());
-            int so_luong = int.Parse(txt_so_luong.Text);
-            tbChiTietMuonTra chiTietphieumuon = new tbChiTietMuonTra(phieu_muon_id, sach_id, so_luong);
-            MuonTraBUS.them_ChiTietPM(chiTietphieumuon);
-            Loads_phieuMuon();
-            clearFormPM();
+            try
+            {
+               
+                    int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
+                    int sach_id = int.Parse(cbb_ten_sach.SelectedValue.ToString());
+                    int so_luong = int.Parse(txt_so_luong.Text);
+                    tbChiTietMuonTra chiTietphieumuon = new tbChiTietMuonTra(phieu_muon_id, sach_id, so_luong);
+                    MuonTraBUS.them_ChiTietPM(chiTietphieumuon);
+                    Loads_phieuMuon();
+                    Loads_chiTietPhieuMuon(txt_ma_the_muon.Text);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi : {ex.Message}");
+            }
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
-            int doc_gia_id = int.Parse(cbb_doc_gia.SelectedValue.ToString());
-            DateTime ngay_muon = DateTime.Parse(txt_ngay_muon.Text);
-            DateTime ngay_hen_tra = DateTime.Parse(txt_ngay_tra.Text);
-            tbMuonTra tbMuontra = new tbMuonTra(phieu_muon_id, doc_gia_id, ngay_muon, ngay_hen_tra);
-            MuonTraBUS.sua_pm(tbMuontra);
-            Loads_phieuMuon();
-            clearFormPM();
+            try
+            {
+                
+                    int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
+                    int doc_gia_id = int.Parse(cbb_doc_gia.SelectedValue.ToString());
+                    DateTime ngay_muon = DateTime.Parse(txt_ngay_muon.Text);
+                    DateTime ngay_hen_tra = DateTime.Parse(txt_ngay_tra.Text);
+                    tbMuonTra tbMuontra = new tbMuonTra(phieu_muon_id, doc_gia_id, ngay_muon, ngay_hen_tra);
+                    MuonTraBUS.sua_pm(tbMuontra);
+                    btn_them.Enabled = true;
+                    btn_tra.Enabled = true;
+                    btn_xem.Enabled = true;
+                    Loads_phieuMuon();
+                    clearFormPM();
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+        }
+
+        public void clearFormCTPM()
+        {
+            cbb_ten_sach.SelectedValue = 0;
+            txt_so_luong.Text = "";
         }
 
         private void btn_bo_qua_Click(object sender, EventArgs e)
@@ -128,18 +192,28 @@ namespace GUI
             btn_tra.Enabled = true;
             btn_xem.Enabled = true;
             clearFormPM();
+            clearFormCTPM();
+            
         }
 
         private void btn_tra_Click(object sender, EventArgs e)
         {
-            int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
-            int doc_gia_id = int.Parse(cbb_doc_gia.SelectedValue.ToString());
-            DateTime ngay_muon = DateTime.Parse(txt_ngay_muon.Text);
-            DateTime ngay_hen_tra = DateTime.Parse(txt_ngay_tra.Text);
-            tbMuonTra tbMuontra = new tbMuonTra(phieu_muon_id, doc_gia_id, ngay_muon, ngay_hen_tra);
-            MuonTraBUS.xoa_pm(tbMuontra);
-            Loads_phieuMuon();
-            clearFormPM();
+            try
+            {
+                  int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
+                    int doc_gia_id = int.Parse(cbb_doc_gia.SelectedValue.ToString());
+                    DateTime ngay_muon = DateTime.Parse(txt_ngay_muon.Text);
+                    DateTime ngay_hen_tra = DateTime.Parse(txt_ngay_tra.Text);
+                    tbMuonTra tbMuontra = new tbMuonTra(phieu_muon_id, doc_gia_id, ngay_muon, ngay_hen_tra);
+                    MuonTraBUS.xoa_pm(tbMuontra);
+                    Loads_phieuMuon();
+                    clearFormPM();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi : {ex.Message}");
+            }
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
@@ -153,30 +227,43 @@ namespace GUI
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
-            int doc_gia_id = int.Parse(cbb_doc_gia.SelectedValue.ToString());
-            DateTime ngay_muon = DateTime.Parse(txt_ngay_muon.Text);
-            DateTime ngay_hen_tra = DateTime.Parse(txt_ngay_tra.Text);
-            tbMuonTra tbMuontra = new tbMuonTra(phieu_muon_id, doc_gia_id, ngay_muon, ngay_hen_tra);
-            MuonTraBUS.them_pm(tbMuontra);
-            Loads_phieuMuon();
-            clearFormPM();
+            try
+            {
+                    int phieu_muon_id = int.Parse(txt_ma_the_muon.Text);
+                    int doc_gia_id = int.Parse(cbb_doc_gia.SelectedValue.ToString());
+                    DateTime ngay_muon = DateTime.Parse(txt_ngay_muon.Text);
+                    DateTime ngay_hen_tra = DateTime.Parse(txt_ngay_tra.Text);
+                    tbMuonTra tbMuontra = new tbMuonTra(phieu_muon_id, doc_gia_id, ngay_muon, ngay_hen_tra);
+                    MuonTraBUS.them_pm(tbMuontra);
+                    Loads_phieuMuon();
+                    clearFormPM();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi : {ex.Message}");
+            }
         }
 
         private void btn_xem_Click(object sender, EventArgs e)
         {
-            if (cbb_doc_gia.Text == "")
+
+            try
             {
-                MessageBox.Show("độc giả không được phép rỗng");
-            }
-            else
-            {
+
                 cbb_doc_gia.Enabled = false;
                 txt_ma_the_muon.Enabled = false;
                 txt_ngay_muon.Enabled = false;
                 txt_ngay_tra.Enabled = false;
-                Loads_chiTietPhieuMuon(cbb_doc_gia.SelectedValue.ToString());
+                //txt_so_luong.Text = cbb_doc_gia.SelectedValue.ToString();
+                String madocgia = txt_ma_the_muon.Text;
+                Loads_chiTietPhieuMuon(madocgia);
+
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi : {ex.Message}");
+            }
+            
         }
 
         private void dgv_ds_muon_tra_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -201,9 +288,16 @@ namespace GUI
 
         private void QL_TraMuon_Sach_Load(object sender, EventArgs e)
         {
-            Loads_phieuMuon();
-            loads_sachs();
-            loads_member();
+            try
+            {
+                Loads_phieuMuon();
+                loads_sachs();
+                loads_member();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi tải form: {ex.Message}");
+            }
         }
 
         private void btn_the_loai_Click(object sender, EventArgs e)
@@ -222,9 +316,17 @@ namespace GUI
 
         private void btn_kho_sach_Click(object sender, EventArgs e)
         {
+
             QL_Kho_Sach qlks = new QL_Kho_Sach();
             this.Hide();
             qlks.ShowDialog();
         }
+
+        
     }
+
+
 }
+
+
+

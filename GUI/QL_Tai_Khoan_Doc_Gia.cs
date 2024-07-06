@@ -68,9 +68,7 @@ namespace GUI
 
         private void btn_bo_qua_Click(object sender, EventArgs e)
         {
-            QL_Kho_Sach qlks = new QL_Kho_Sach();
-            this.Hide();
-            qlks.ShowDialog();
+            ClearForm();
         }
 
         private void dgv_ds_doc_gia_RowEnter(object sender, DataGridViewCellEventArgs e)

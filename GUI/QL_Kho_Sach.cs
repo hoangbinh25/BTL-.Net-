@@ -121,54 +121,76 @@ namespace GUI
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            int sach_id = int.Parse(txt_ma_sach.Text);
-            String ten_sach = txt_ten_sach.Text;
-            String tac_gia = txt_tac_gia.Text;
-            String loai_sach = cbb_the_loai.SelectedValue.ToString();
-            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
-            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
-            String gia_bia = txt_gia_ban.Text;
-            String nha_xb = txt_nha_xuat_ban.Text;
-            int soluong = int.Parse(txt_so_luong.Text);
-            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
-            SachBUS.xoa_sach(sach);
-            loads_dgv();
-            ClearForm();
+            try
+            {
+                int sach_id = int.Parse(txt_ma_sach.Text);
+                String ten_sach = txt_ten_sach.Text;
+                String tac_gia = txt_tac_gia.Text;
+                String loai_sach = cbb_the_loai.SelectedValue.ToString();
+                String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
+                DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
+                String gia_bia = txt_gia_ban.Text;
+                String nha_xb = txt_nha_xuat_ban.Text;
+                int soluong = int.Parse(txt_so_luong.Text);
+                tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
+                SachBUS.xoa_sach(sach);
+                loads_dgv();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi Load : {ex.Message}");
+            }
         }
 
         private void btn_sua_Click(object sender, EventArgs e)
         {
-            int sach_id = int.Parse(txt_ma_sach.Text);
-            String ten_sach = txt_ten_sach.Text;
-            String tac_gia = txt_tac_gia.Text;
-            String loai_sach = cbb_the_loai.SelectedValue.ToString();
-            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
-            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
-            String gia_bia = txt_gia_ban.Text;
-            String nha_xb = txt_nha_xuat_ban.Text;
-            int soluong = int.Parse(txt_so_luong.Text);
-            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
-            SachBUS.sua_sach(sach);
-            loads_dgv();
-            ClearForm();
+
+            try
+            {
+                int sach_id = int.Parse(txt_ma_sach.Text);
+                String ten_sach = txt_ten_sach.Text;
+                String tac_gia = txt_tac_gia.Text;
+                String loai_sach = cbb_the_loai.SelectedValue.ToString();
+                String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
+                DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
+                String gia_bia = txt_gia_ban.Text;
+                String nha_xb = txt_nha_xuat_ban.Text;
+                int soluong = int.Parse(txt_so_luong.Text);
+                tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
+                SachBUS.sua_sach(sach);
+                loads_dgv();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi Load : {ex.Message}");
+            }
         }
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            //txt_ma_sach.Text = cbb_ngon_ngu.SelectedValue.ToString();
-            int sach_id = int.Parse(txt_ma_sach.Text);
-            String ten_sach = txt_ten_sach.Text;
-            String tac_gia = txt_tac_gia.Text;
-            String loai_sach = cbb_the_loai.SelectedValue.ToString();
-            String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
-            DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
-            String gia_bia = txt_gia_ban.Text;
-            String nha_xb = txt_nha_xuat_ban.Text;
-            int soluong = int.Parse(txt_so_luong.Text);
-            tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
-            SachBUS.them_sach(sach);
-            loads_dgv();
-            ClearForm();
+            try
+            {
+                //txt_ma_sach.Text = cbb_ngon_ngu.SelectedValue.ToString();
+                int sach_id = int.Parse(txt_ma_sach.Text);
+                String ten_sach = txt_ten_sach.Text;
+                String tac_gia = txt_tac_gia.Text;
+                String loai_sach = cbb_the_loai.SelectedValue.ToString();
+                String ngon_ngu = cbb_ngon_ngu.SelectedValue.ToString();
+                DateTime ngay_nhap = DateTime.Parse(txt_ngay_nhap.Text);
+                String gia_bia = txt_gia_ban.Text;
+                String nha_xb = txt_nha_xuat_ban.Text;
+                int soluong = int.Parse(txt_so_luong.Text);
+                tblSach sach = new tblSach(sach_id, ten_sach, tac_gia, loai_sach, ngon_ngu, ngay_nhap, gia_bia, nha_xb, soluong);
+                SachBUS.them_sach(sach);
+                loads_dgv();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi Load : {ex.Message}");
+            }
         }
 
         private void btn_doc_gia_Click(object sender, EventArgs e)

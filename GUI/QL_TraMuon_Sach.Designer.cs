@@ -31,7 +31,6 @@ namespace GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_tim_kiem = new System.Windows.Forms.Button();
             this.txt_ngay_tra = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgv_ds_muon_tra = new System.Windows.Forms.DataGridView();
@@ -73,23 +72,6 @@ namespace GUI
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ds_chitietmuontra)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_tim_kiem
-            // 
-            this.btn_tim_kiem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_tim_kiem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tim_kiem.ForeColor = System.Drawing.Color.Black;
-            this.btn_tim_kiem.Image = global::GUI.Properties.Resources.favicon_16x16;
-            this.btn_tim_kiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_tim_kiem.Location = new System.Drawing.Point(776, 146);
-            this.btn_tim_kiem.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btn_tim_kiem.Name = "btn_tim_kiem";
-            this.btn_tim_kiem.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
-            this.btn_tim_kiem.Size = new System.Drawing.Size(125, 33);
-            this.btn_tim_kiem.TabIndex = 29;
-            this.btn_tim_kiem.Text = "Tìm Kiếm";
-            this.btn_tim_kiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_tim_kiem.UseVisualStyleBackColor = true;
             // 
             // txt_ngay_tra
             // 
@@ -150,7 +132,6 @@ namespace GUI
             this.panel2.Controls.Add(this.txt_ma_the_muon);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btn_xem);
-            this.panel2.Controls.Add(this.btn_tim_kiem);
             this.panel2.Controls.Add(this.txt_ngay_tra);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txt_ngay_muon);
@@ -185,7 +166,7 @@ namespace GUI
             this.btn_luu.ForeColor = System.Drawing.Color.Black;
             this.btn_luu.Image = global::GUI.Properties.Resources.z5560539359592_623c956011eaad65169285dc99d41041;
             this.btn_luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_luu.Location = new System.Drawing.Point(324, 146);
+            this.btn_luu.Location = new System.Drawing.Point(388, 146);
             this.btn_luu.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -226,7 +207,7 @@ namespace GUI
             this.btn_xem.ForeColor = System.Drawing.Color.Black;
             this.btn_xem.Image = global::GUI.Properties.Resources.favicon_32x32;
             this.btn_xem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_xem.Location = new System.Drawing.Point(635, 146);
+            this.btn_xem.Location = new System.Drawing.Point(750, 146);
             this.btn_xem.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_xem.Name = "btn_xem";
             this.btn_xem.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -256,11 +237,11 @@ namespace GUI
             this.btn_bo_qua.ForeColor = System.Drawing.Color.Black;
             this.btn_bo_qua.Image = global::GUI.Properties.Resources.z5560539339010_ef792d56ebbc8998d0d577435891ae63;
             this.btn_bo_qua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_bo_qua.Location = new System.Drawing.Point(936, 146);
+            this.btn_bo_qua.Location = new System.Drawing.Point(915, 146);
             this.btn_bo_qua.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_bo_qua.Name = "btn_bo_qua";
             this.btn_bo_qua.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
-            this.btn_bo_qua.Size = new System.Drawing.Size(100, 33);
+            this.btn_bo_qua.Size = new System.Drawing.Size(121, 33);
             this.btn_bo_qua.TabIndex = 12;
             this.btn_bo_qua.Text = "Bỏ Qua";
             this.btn_bo_qua.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -274,7 +255,7 @@ namespace GUI
             this.btn_tra.ForeColor = System.Drawing.Color.Black;
             this.btn_tra.Image = global::GUI.Properties.Resources.favicon_16x161;
             this.btn_tra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_tra.Location = new System.Drawing.Point(476, 146);
+            this.btn_tra.Location = new System.Drawing.Point(578, 146);
             this.btn_tra.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_tra.Name = "btn_tra";
             this.btn_tra.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -292,7 +273,7 @@ namespace GUI
             this.btn_sua.ForeColor = System.Drawing.Color.Black;
             this.btn_sua.Image = global::GUI.Properties.Resources.z5560539359740_9337aa11269aeccd6e939ece18cfa20e;
             this.btn_sua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_sua.Location = new System.Drawing.Point(176, 146);
+            this.btn_sua.Location = new System.Drawing.Point(217, 146);
             this.btn_sua.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Padding = new System.Windows.Forms.Padding(11, 4, 4, 4);
@@ -603,8 +584,6 @@ namespace GUI
         }
 
         #endregion
-
-        private Button btn_tim_kiem;
         private TextBox txt_ngay_tra;
         private Label label4;
         private DataGridView dgv_ds_muon_tra;
