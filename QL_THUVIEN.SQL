@@ -343,7 +343,7 @@ END;
 GO
 
 --thêm phiếu mượn
-ALTER PROCEDURE proc_insert_phieuMuon
+CREATE PROCEDURE proc_insert_phieuMuon
 	
     @doc_gia_id INT,
     @ngay_muon DATE,
@@ -382,7 +382,7 @@ END;
 GO
 
 -- 
-ALTER PROCEDURE proc_DeletePM
+CREATE PROCEDURE proc_DeletePM
     @phieu_muon_id INT
 AS
 BEGIN

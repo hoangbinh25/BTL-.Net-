@@ -18,12 +18,11 @@ namespace GUI
             InitializeComponent();
         }
 
-
         public void Loads()
         {
-            Sach_RPT sVReport1 = new Sach_RPT();
+            RPT_Sach sVReport1 = new RPT_Sach();
             sVReport1.SetDataSource(SachBUS.ds_sach());
-            crystalReportViewer1.ReportSource = sVReport1;
+            baoCaoRV.ReportSource = sVReport1;
         }
 
         private void fInBaoCao_Load(object sender, EventArgs e)

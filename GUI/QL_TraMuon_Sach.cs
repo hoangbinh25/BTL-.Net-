@@ -48,7 +48,7 @@ namespace GUI
         public void loads_member()
         {
             cbb_doc_gia.DataSource = MuonTraBUS.ds_doc_gia();
-            cbb_doc_gia.DisplayMember = "ten_doc_gia";
+            cbb_doc_gia.DisplayMember = "Tên Độc Giả";
             cbb_doc_gia.ValueMember = "Mã Độc Giả";
         }
 

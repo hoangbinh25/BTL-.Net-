@@ -10,7 +10,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fInBaoCao());
+            Application.Run(new form_dang_nhap());
         }
     }
 }

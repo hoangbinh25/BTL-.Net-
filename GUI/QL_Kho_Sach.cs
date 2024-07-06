@@ -184,5 +184,11 @@ namespace GUI
             this.Hide();
             qlmt.ShowDialog();
         }
+
+        private void btn_xuat_bao_cao_Click(object sender, EventArgs e)
+        {
+            fInBaoCao f = new fInBaoCao();
+            f.ShowDialog();
+        }
     }
 }
